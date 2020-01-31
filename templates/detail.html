@@ -1,0 +1,76 @@
+
+<html>
+	<head>
+		<title> Detail Data </title>
+		<!-- <link rel="Icon" href="favicon.png" type="image/png" /> -->
+		<link rel="Icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/style2.css" /> -->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style4.css') }}" />
+		<script src="https://kit.fontawesome.com/16b5cf1a92.js" crossorigin="anonymous"></script>
+	</head>
+	
+	<body>
+	<div id="container">
+		<div class="header">
+			<div class="blockchain" >
+			<img src="{{ url_for('static', filename='favicon.png') }}" width="60" height="60">
+			Blockchain
+			</div>
+		</div>
+		
+		<nav>
+			<ul>
+				<div class="add"> <i class="fas fa-search"></i> Detail Data</div>
+				<li><a href="/home"> <i class="fas fa-home"></i> Home</a></li>
+				<li><a href="/addData"> <i class="fas fa-user-plus"></i> Add</a></li>
+				<li><a href="/logout"> <i class="fas fa-sign-out-alt"></i> Logout</a></li>
+			</ul>
+		</nav>
+
+		<div class="content1">
+			<div class="form-style-3">
+				<form>
+					<fieldset>
+						<!-- {{data}} -->
+						{% for item in data %}
+							<label><span>Gelar Depan</span></label>
+							<input type="text" value="{{item[2]}}" readonly />
+							<label><span>Nama Lengkap</span></label>
+							<input type="text" value="{{item[3]}}" readonly />
+							<label><span>Gelar Belakang</span></label>
+							<input type="text" value="{{item[4]}}" readonly />
+							<label><span>Tempat, Tanggal Lahir</span></label>
+							<input type="text" value="{{item[5]}}" readonly />
+							<label><span>Universitas</span></label>
+							<input type="text" value="{{item[6]}}" readonly />
+							<label><span>Nomor Ijazah</span></label>
+							<input type="text" value="{{item[7]}}" readonly />
+							<label><span>Tanggal Dikeluarkan Ijazah</span></label>
+							<input type="text" value="{{item[8]}}" readonly />
+							<label><span>Tahun Terbit Ijazah</span></label>
+							<input type="text" value="{{item[9]}}" readonly />
+							<label><span> Foto Ijazah</span></label>
+							<div><img src="{{ url_for('static', filename='uploads/'+item[10]) }}" width="350" height="200"></div>
+						{% endfor %}
+					</fieldset>
+				</form>
+			</div>
+		</div>
+
+		<div class="sisipan"></div>
+		<div class="footer">
+			<div class="isifooter">
+			PT. Mitra Kreasindo
+				<div class="dalam">
+				<p>Alamat :</p>
+				<p> Jl. Tanah Abang II No.46, RT.1/RW.5, Petojo Sel., Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10160 </p>
+				<p> Telepon: </p>
+				<p> (021) 29607000 </p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	</body>
+</html>

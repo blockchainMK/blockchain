@@ -1,0 +1,57 @@
+
+<html>
+	<head>
+		<title> Home </title>
+		<link rel="Icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}" />
+	</head>
+	
+	<body>
+		<div id="container">
+		<div id='cssmenu'>
+		<ul>
+		   <li class='has-sub '><a href='#'><span>Add</span></a>
+			  <ul>
+				 <li class='has-sub '><a href='/conCollege'><span>College</span></a>
+				 </li>
+				 <li class='has-sub '><a href='/conArea'><span>Area</span></a>
+				 </li>
+			  </ul>
+		   </li>
+		   <li><a href='/logout'><span>Logout</span></a></li>
+		</ul>
+		</div>
+		
+		<div class="center">
+			<div class="atas">
+			<hr size="1px" width="100%" align="center" color="Gainsboro" />
+			</div>
+			<center> Welcome </center>
+			<div class="bawah">
+			<hr size="1px" width="100%" align="center" color="Gainsboro" />
+			</div>
+		</div>
+		
+		<div class=malasngoding-slider>
+			<div class=isi-slider>
+				<img src="{{ url_for('static', filename='images/gambar1.jpg') }}" alt="Gambar 1">
+				<img src="{{ url_for('static', filename='images/gambar2.jpg') }}" alt="Gambar 2">
+				<img src="{{ url_for('static', filename='images/gambar3.jpg') }}" alt="Gambar 3">
+			</div>
+		</div>
+		
+		<div class="footer">
+			<div class="isifooter">
+			PT. Mitra Kreasindo
+				<div class="dalam">
+				<p>Alamat :</p>
+				<p> Jl. Tanah Abang II No.46, RT.1/RW.5, Petojo Sel., Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10160 </p>
+				<p> Telepon: </p>
+				<p> (021) 29607000 </p>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

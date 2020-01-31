@@ -1,0 +1,83 @@
+
+<html>
+	<head>
+		<title> ADD Universitas </title>
+		<link rel="Icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}" />
+	</head>
+	
+	<body>
+		<div id="container">
+			<div id='cssmenu'>
+				<ul>
+				   <li><a href='/homeAdmin'><span>Home</span></a></li>
+				   <li><a href='/logout'><span>Logout</span></a></li>
+				</ul>
+			</div>
+		
+			<div class="contain">
+			  	<div class="wrapper">
+			    	<div class="contacts">
+			      		<h3>Helpesk</h3>
+
+			      		<ul>
+				        	<li>00-xxxxxx-11</li>
+				        	<li>mail@mail.com</li>
+				      	</ul>
+			    	</div>
+
+			    	<div class="form">
+			      		<h3>Add College </h3>
+			      		<form action="/conCollege" method="post">
+			        		<p>
+			          			<label for="universitas">College Name</label>
+			          			<input type="text" name="collegeName" required>
+			        		</p>
+					  		<button type="submit">ADD</button>
+			      		</form>
+			    	</div>
+			  	</div>
+			  	
+			  	{% with messages = get_flashed_messages(with_categories=true) %}
+					{% if messages %}
+					    {% for category, message in messages %}
+					    	<div class="sisipan1">
+					      		<strong id="msg">{{ message }}</strong>
+					      		<br><br>
+					      	</div>
+					    {% endfor %}
+					{% endif %}
+				{% endwith %}
+			  	
+		  		<br><br>
+			  	<div class="content">
+					<table class="table1">
+						<tr>
+							<th>College Data</th>
+						</tr>
+						{% for item in dataCollege %}
+							<tr>
+								<td>{{item[1]}}</td>
+							</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+			<div class="sisipan">
+			</div>
+			
+			<div class="footer">
+				<div class="isifooter">
+					PT. Mitra Kreasindo
+					<div class="dalam">
+						<p>Alamat :</p>
+						<p> Jl. Tanah Abang II No.46, RT.1/RW.5, Petojo Sel., Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10160 </p>
+						<p> Telepon: </p>
+						<p> (021) 29607000 </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

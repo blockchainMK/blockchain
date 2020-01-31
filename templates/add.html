@@ -1,0 +1,204 @@
+
+<html>
+	<head>
+		<title> Add Data </title>
+		<!-- <link rel="Icon" href="favicon.png" type="image/png" /> -->
+		<link rel="Icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/style2.css" /> -->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style4.css') }}" />
+		<script src="https://kit.fontawesome.com/16b5cf1a92.js" crossorigin="anonymous"></script>
+	</head>
+	
+	<body>
+		<div id="container">
+			<div class="header">
+				<div class="blockchain" >
+					<img src="{{ url_for('static', filename='favicon.png') }}" width="60" height="60">
+					Blockchain
+				</div>
+			</div>
+			
+			<nav>
+				<ul>
+					<div class="add"> <i class="fas fa-user-plus"></i> Add Data</div>
+					<li><a href="/home"> <i class="fas fa-home"></i> Home</a></li>
+					<li><a href="/logout"> <i class="fas fa-sign-out-alt"></i> Logout</a></li>
+				</ul>
+			</nav>
+
+			{% with messages = get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+			    	{% for category, message in messages %}
+			    		<div class="space">
+			      			<strong id="msgData">{{ message }}</strong>
+			      		</div>
+				    {% endfor %}
+				{% endif %}
+			{% endwith %}
+
+			<br><br>
+			<div class="content">
+				<div class="form-style-3">
+					<form action="/addData" method="post" enctype="multipart/form-data">
+						<fieldset><legend>Form Data Ijazah</legend>
+							<label><span>Gelar Depan </span></label>
+							<input type="text" class="input-field" name="gelar1"/>
+							<label><span>Nama Lengkap <span class="required">*</span></span></label>
+							<input type="text" class="input-field" name="nama" required />
+							<label><span>Gelar Belakang </span></label>
+							<input type="text" class="input-field" name="gelar2"/>
+							<label><span>Tempat Lahir <span class="required">*</span></span></label>
+							<div id="form-style-4">
+				  				<span>Provinsi <span class="required">*</span>
+								<select name="province" required id="provinsi" onchange="setOption_()">
+					  				<option value="" selected="selected" disabled>-- Pilih Provinsi --</option>
+					  				{% for item in dataProvince %}
+					  				<option value="{{item[0]}}">{{item[1]}}</option>
+					  				{% endfor %}
+								</select>
+				  				<span>Kab./Kota <span class="required">*</span>
+								<select name="ttl1" required id="kabupatenkota">
+					  				
+								</select>
+							</div>
+
+							<label><span>Tanggal Lahir <span class="required">*</span></span></label>
+							<input type="date" class="input-field" name="ttl2" required />
+							<label><span>Universitas <span class="required">*</span></span></label>
+							<input type="text" class="input-field" list="datalist" name="univ" id="univInput" required />
+							<datalist id="datalist" required >
+								<option value="" selected="selected" disabled>-- Pilih Universitas --</option>
+								{% for item in dataCollege %}
+								<option value="{{item[1]}}">{{item[1]}}</option>
+								{% endfor %}
+							</datalist>
+							
+							<label><span>Nomor Ijazah <span class="required">*</span></span></label>
+							<input type="text" class="input-field" name="nomor" required />
+							<label><span>Tanggal Dikeluarkan Ijazah <span class="required">*</span></span></label>
+							<input type="date" class="input-field" name="tanggal" required id="tanggal" onchange="setYear_()" />
+							<label><span>Tahun Terbit Ijazah </label>
+							<input type="number" class="input-field" name="tahun" id="tahun" readonly />
+							<label><span>Upload Ijazah <span class="required">*</span></span></label>
+							<input type="file" class="input-field" name="filenya" required accept="image/jpg" />
+							<label><input type="submit" value="Submit"/></label>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+
+			<!-- <div class="sisipan"></div> -->
+			<div class="footer">
+				<div class="isifooter">
+				PT. Mitra Kreasindo
+					<div class="dalam">
+					<p>Alamat :</p>
+					<p> Jl. Tanah Abang II No.46, RT.1/RW.5, Petojo Sel., Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10160 </p>
+					<p> Telepon: </p>
+					<p> (021) 29607000 </p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- {{dataCity}} -->
+		<!-- <p id="test">ini </p> -->
+
+		{% block javascript %}
+		
+		<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/myScript.js') }}"></script> -->
+		<script type="text/javascript">
+		    var subProvince = {{dataCity|map(attribute=1)|list|tojson|safe}};
+		    var subCity = {{dataCity|map(attribute=2)|list|tojson|safe}};
+
+		    function checkProvince(province)
+		    {
+		    	var city = [];
+		    	for (i=0; i<subProvince.length; i++)
+		    	{
+		    		if(subProvince[i]==province)
+		    		{
+		    			city.push(subCity[i]);
+		    		}
+		    	}
+
+		    	return city;
+		    	// return {{dataCity|map(attribute=1)|list|tojson|safe}} == province;
+		    }
+
+		    function setOption()
+		    {
+		        var valSelector = document.getElementById("provinsi").value;
+		        // var dataCity = data;
+		        if(valSelector)
+		        {
+		            var selectionCity = checkProvince(valSelector);
+		        }
+
+		        document.getElementById("kabupatenkota").innerHTML = '<option value="" selected="selected" disabled>-- Pilih Kabupaten/Kota --</option>';
+		        // document.getElementById("test").innerHTML = selectionCity;
+		        if(selectionCity.length)
+		        {
+		            var html = '<option value="" selected="selected" disabled>-- Pilih Kabupaten/Kota --</option>';
+
+		            selectionCity.forEach(function(city)
+		            {
+		                html += '<option value="'+city+'">'+city+'</option>';
+		            });
+		        }
+		        else
+		        {
+		            var html='<option value="" selected="selected" disabled>-- Pilih Kabupaten/Kota --</option>';
+		        }
+		        document.getElementById("kabupatenkota").innerHTML = html;
+		    }
+
+		    function setOption_()
+		    {
+		    	document.getElementById("provinsi").addEventListener("onchange", setOption());
+		    }
+
+
+
+		    var subCollege = {{dataCollege|map(attribute=1)|list|tojson|safe}};
+
+		    function suggestion()
+		    {
+		    	document.getElementById("datalist").innerHTML = ''; 
+		    	var universitas = document.getElementById("univInput").value.length;
+				
+				for(i=0; i<subCollege.length; i++)
+				{
+					if (((subCollege[i].toLowerCase()).indexOf(value.toLowerCase())) > -1) 
+         			{
+             			var node = document.createElement("option");
+             			var val = document.createTextNode(subColleges[i]);
+              			node.appendChild(val);
+  
+               			document.getElementById("datalist").appendChild(node); 
+             		} 
+             	}
+		    }
+
+
+
+		    function setYear()
+		    {
+		    	var date = new Date(document.getElementById("tanggal").value);
+		    	var year = date.getFullYear();
+
+		    	document.getElementById("tahun").value = year;
+		    }
+
+		    function setYear_()
+		    {
+		    	document.getElementById("tanggal").addEventListener("onchange", setYear());
+		    }
+
+		</script>
+
+		{% endblock %}
+
+	</body>
+</html>

@@ -1,0 +1,114 @@
+
+<html>
+	<head>
+		<title> ADD Daerah </title>
+		<link rel="Icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}" />
+	</head>
+	
+	<body>
+		<div id="container">
+			<div id='cssmenu'>
+				<ul>
+				   <li><a href='/homeAdmin'><span>Home</span></a></li>
+				   <li><a href='/logout'><span>Logout</span></a></li>
+				</ul>
+			</div>
+		
+			<div class="contain">
+			  	<div class="wrapper">
+			    	<div class="contacts">
+			      		<h3>Helpesk</h3>
+			      		<ul>
+					    	<li>00-xxxxxx-11</li>
+					    	<li>mail@mail.com</li>
+					    </ul>
+			    	</div>
+
+    				<div class="form">
+	      				<h3>Add Province</h3>
+	      				<form action="/addProvince" method="post">
+	        				<p>
+						        <label for="province">Province Name</label>
+						        <input type="text" name="provinceName" required>
+						    </p>
+							<button type="submit">ADD</button>
+						</form>
+
+						<br><br>
+						<h3>Add District</h3>
+						<form action="/addCity" method="post">
+							<label for="province1">Province Name</label>
+							<br>
+							<select name="provinceName1" required>
+								<option value="" selected disabled>-- Province --</option>
+								{% for item in dataProvince %}
+									<option value="{{item[0]}}">{{item[1]}}</option>
+								{% endfor %}
+							</select>
+							<br></br>
+							<p>
+						        <label for="city">District Name</label>
+						        <input type="text" name="cityName">
+						    </p>
+	          				<button type="submit">ADD</button>
+						</form>
+					</div>
+				</div>
+
+				{% with messages = get_flashed_messages(with_categories=true) %}
+					{% if messages %}
+					    {% for category, message in messages %}
+					    	<div class="sisipan1">
+					      		<strong id="msg">{{ message }}</strong>
+					      		<br><br>
+					      	</div>
+					    {% endfor %}
+					{% endif %}
+				{% endwith %}
+
+				<br></br>
+	  			<div class="content1">
+					<div class="kotak1">
+						<table  class="table1">
+							<tr>
+								<th>Province Data</th>
+							</tr>
+							{% for item1 in dataProvince %}
+								<tr>
+									<td>{{item1[1]}}</td>
+								</tr>
+							{% endfor %}
+						</table>
+					</div>
+					<div class="kotak2">
+						<table class="table1">
+							<tr>
+								<th>District Data</th>
+							</tr>
+							{% for item2 in dataCity %}
+								<tr>
+									<td>{{item2[2]}}</td>
+								</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="sisipan"></div> -->
+			
+			<div class="footer">
+				<div class="isifooter">
+					PT. Mitra Kreasindo
+					<div class="dalam">
+						<p>Alamat :</p>
+						<p> Jl. Tanah Abang II No.46, RT.1/RW.5, Petojo Sel., Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10160 </p>
+						<p> Telepon: </p>
+						<p> (021) 29607000 </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

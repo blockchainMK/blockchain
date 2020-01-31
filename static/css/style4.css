@@ -1,0 +1,240 @@
+* {
+	margin:0;
+	padding:0;
+	font-family:sans-serif;
+}
+html,body{
+    height: 100%;
+}
+
+#container{
+    min-height: 100%;
+    position: relative;
+}
+
+.header {
+width=100%;
+height:86px;
+background:#00008B;
+/*border:1px solid;*/
+}
+
+.blockchain {
+padding-left:20px;
+padding-top:15px;
+color:white;
+font-size: 50px;
+}
+
+nav {
+        margin:auto;
+        text-align: center;
+        width: 100%;
+        font-family: arial;
+} 
+
+.add {
+align:center;
+font-size:30px;
+color:white;
+font-family:Trebuchet MS;
+}
+
+nav ul {
+        background: #D2691E;
+        padding: 0 0;
+        list-style: none;
+        position: relative;
+        display: inline-table;
+        width: 100%;
+}
+
+nav ul li{
+        float:left; /* mau ganti dikiri, tengah, kanan*/
+}
+
+nav ul li:hover{
+        background: #E9967A;
+} /* pada background berubah warna saat di klik*/
+
+nav ul li:hover a{
+        color:#000;
+} /* pada text berubah warna saat di klik*/
+
+nav ul li a {
+        display: block;
+        padding: 25px;
+        color: #fff;
+        text-decoration: none;
+}
+
+.content {
+min-height:800px;
+margin:0 auto;
+width:60%;
+}
+
+.content1 {
+min-height:610px;
+margin:0 auto;
+width:60%;
+}
+
+.form-style-3{
+	max-width: 450px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.form-style-3 label{
+	display:block;
+	margin-bottom: 10px;
+}
+
+/*tulisan kecil*/
+.form-style-3 label > span{
+	float: left;
+	width: 800px;
+	color: black;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #FFA07A;
+	padding-top: 10px;
+}
+
+.form-style-3 fieldset{
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	margin: 0px 0px 10px 0px;
+	border: 1px solid  	 	#8B4513;
+	padding: 20px;
+	background:  	 	#FFE4C4;
+	box-shadow: inset 0px 0px 15px  	 	#8B4513;
+	-moz-box-shadow: inset 0px 0px 15px  	 	#8B4513;
+	-webkit-box-shadow: inset 0px 0px 15px  	 	#8B4513;
+}
+
+/*kotak kecil atas*/
+.form-style-3 fieldset legend{
+	color:  	white;
+	border-top: 1px solid  	#D2691E;
+	border-left: 1px solid  	#D2691E;
+	border-right: 1px solid  	#D2691E;
+	border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	background:  	 	#8B4513;
+	padding: 0px 8px 3px 8px;
+	box-shadow: -0px -1px 2px  	#A52A2A;
+	-moz-box-shadow:-0px -1px 2px  	#A52A2A;
+	-webkit-box-shadow:-0px -1px 2px  	#A52A2A;
+	font-weight: normal;
+	font-size: 25px;
+}
+.form-style-3 textarea{
+	width:250px;
+	height:100px;
+}
+
+/*kotak kecil*/
+.form-style-3 input[type=text],
+.form-style-3 input[type=date],
+.form-style-3 input[type=datetime],
+.form-style-3 input[type=number],
+.form-style-3 input[type=search],
+.form-style-3 input[type=time],
+.form-style-3 input[type=url],
+.form-style-3 input[type=email],
+.form-style-3 select, 
+.form-style-3 textarea{
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid  	#D2691E;
+	outline: none;
+	color:  	white;
+	padding: 5px 8px 5px 8px;
+	box-shadow: inset 1px 1px 4px  	#E9967A;
+	-moz-box-shadow: inset 1px 1px 4px  	#E9967A;
+	-webkit-box-shadow: inset 1px 1px 4px  	#E9967A;
+	background:  	#E9967A;
+	width:80%;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#form-style-4 select, 
+#form-style-4 textarea{
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid  	#D2691E;
+	outline: none;
+	color:  	white;
+	padding: 5px 8px 5px 8px;
+	box-shadow: inset 1px 1px 4px  	#E9967A;
+	-moz-box-shadow: inset 1px 1px 4px  	#E9967A;
+	-webkit-box-shadow: inset 1px 1px 4px  	#E9967A;
+	background:  	#E9967A;
+	width:30% !important;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.form-style-3  input[type=submit],
+.form-style-3  input[type=button]{
+	background:  	#8B4513;
+	border: 1px solid  	#D2691E;
+	padding: 5px 15px 5px 15px;
+	color: #FFCBE2;
+	box-shadow: inset -1px -1px 3px 	#F4A460;
+	-moz-box-shadow: inset -1px -1px 3px  	#F4A460;
+	-webkit-box-shadow: inset -1px -1px 3px  	#F4A460;
+	border-radius: 3px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+	font-weight: bold;
+	padding-left:10px;
+	margin-top:10px;
+}
+.form-style-3 .required{
+	color:red;
+	font-weight:normal;
+}
+
+.footer{
+    width: 100%;
+    height: 80px;
+    line-height: 50px;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0px;
+}
+
+.isifooter {
+padding-top:8px;
+padding-left:10px;
+font-size:15px;
+line-height:1;
+}
+
+
+.dalam {
+font-size:13px;
+}
+
+.space {
+min-height:40px;
+margin:0 auto;
+padding-top:20px;
+background: 	#FFFACD;
+border-radius: 10px;
+text-align:center;
+}
+
+.sisipan{
+  height: 100px;
+  width: 100%;
+  /*border: 1px solid;*/
+}
